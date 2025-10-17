@@ -1,0 +1,232 @@
+<!-- ========================================
+     PÁGINA DE CONTACTO AGROTRACK
+     ========================================
+     Esta página permite a los empleados enviar consultas y comunicarse
+     con el equipo interno de AgroTrack.
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración básica de la página -->
+    <meta charset="UTF-8">  <!-- Codificación de caracteres para que se vean bien las tildes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Para que se vea bien en móviles -->
+    <title>Contacto - AgroTrack</title>  <!-- El título que aparece en la pestaña del navegador -->
+    
+    <!-- Conectamos el archivo de estilos CSS -->
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+    <!-- Contenedor principal que envuelve todo el contenido -->
+    <div class="container">
+        
+        <!-- ========================================
+             ENCABEZADO (HEADER)
+             ========================================
+             Acá está el título principal y la navegación
+        -->
+        <header>
+            <!-- El título principal de la empresa -->
+            <h1>AgroTrack</h1>
+            
+            <!-- El subtítulo que explica qué es el portal -->
+            <p class="subtitle">Portal Interno Agroindustrial</p>
+            
+            <!-- La barra de navegación con los links principales -->
+            <nav>
+                <!-- Link a la página principal -->
+                <a href="/">Inicio</a>
+                
+                <!-- Link a la página de productos -->
+                <a href="/productos.html">Productos</a>
+                
+                <!-- Link a la página actual (por eso tiene la clase "active") -->
+                <a href="/contacto.html" class="active">Contacto</a>
+                
+                <!-- Link al formulario de login -->
+                <a href="/login.html">Login</a>
+            </nav>
+        </header>
+        
+        <!-- ========================================
+             CONTENIDO PRINCIPAL (MAIN)
+             ========================================
+             Acá está todo el contenido de la página
+        -->
+        <main>
+            
+            <!-- Encabezado de la página con título y descripción -->
+            <section class="page-header">
+                <!-- Título principal de la página -->
+                <h2>Contacto Interno</h2>
+                
+                <!-- Descripción de qué pueden hacer -->
+                <p>Envía tu consulta o sugerencia al equipo de AgroTrack</p>
+            </section>
+            
+            <!-- ========================================
+                 FORMULARIO DE CONTACTO
+                 ========================================
+                 Acá está el formulario que permite enviar consultas
+            -->
+            <section class="contact-form">
+                <!-- 
+                    El formulario envía los datos por POST a /contacto/cargar
+                    que es la ruta que procesa las consultas en el servidor
+                -->
+                <form action="/contacto/cargar" method="POST">
+                    
+                    <!-- Campo 1: Nombre completo -->
+                    <div class="form-group">
+                        <!-- Etiqueta del campo -->
+                        <label for="nombre">Nombre completo:</label>
+                        
+                        <!-- Campo de entrada de texto -->
+                        <input type="text" id="nombre" name="nombre" required>
+                        <!-- 
+                            required = campo obligatorio
+                            name="nombre" = nombre del campo que se envía al servidor
+                        -->
+                    </div>
+                    
+                    <!-- Campo 2: Correo electrónico -->
+                    <div class="form-group">
+                        <!-- Etiqueta del campo -->
+                        <label for="email">Correo electrónico:</label>
+                        
+                        <!-- Campo de entrada de email -->
+                        <input type="email" id="email" name="email" required>
+                        <!-- 
+                            type="email" = valida que sea un email válido
+                            required = campo obligatorio
+                            name="email" = nombre del campo que se envía al servidor
+                        -->
+                    </div>
+                    
+                    <!-- Campo 3: Mensaje -->
+                    <div class="form-group">
+                        <!-- Etiqueta del campo -->
+                        <label for="mensaje">Mensaje:</label>
+                        
+                        <!-- Área de texto para mensajes largos -->
+                        <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Escribe tu consulta o sugerencia aquí..."></textarea>
+                        <!-- 
+                            rows="5" = altura inicial del área de texto
+                            required = campo obligatorio
+                            name="mensaje" = nombre del campo que se envía al servidor
+                            placeholder = texto de ayuda que aparece cuando está vacío
+                        -->
+                    </div>
+                    
+                    <!-- Botones de acción del formulario -->
+                    <div class="form-actions">
+                        <!-- Botón para enviar el formulario -->
+                        <button type="submit" class="btn">Enviar Consulta</button>
+                        
+                        <!-- Botón para limpiar todos los campos -->
+                        <button type="reset" class="btn btn-secondary">Limpiar</button>
+                    </div>
+                </form>
+            </section>
+            
+            <!-- ========================================
+                 INFORMACIÓN DE CONTACTO
+                 ========================================
+                 Acá está la información de contacto de la empresa
+            -->
+            <section class="contact-info">
+                <!-- Título de la sección -->
+                <h3>Información de Contacto</h3>
+                
+                <!-- Contenedor de las tarjetas de información -->
+                <div class="contact-details">
+                    
+                    <!-- Tarjeta 1: Email corporativo -->
+                    <div class="contact-item">
+                        <!-- Título con emoji -->
+                        <h4>📧 Email Corporativo</h4>
+                        
+                        <!-- Dirección de email -->
+                        <p>contacto@agrotrack.com</p>
+                    </div>
+                    
+                    <!-- Tarjeta 2: Teléfono -->
+                    <div class="contact-item">
+                        <!-- Título con emoji -->
+                        <h4>📞 Teléfono</h4>
+                        
+                        <!-- Número de teléfono -->
+                        <p>+54 11 1234-5678</p>
+                    </div>
+                    
+                    <!-- Tarjeta 3: Dirección -->
+                    <div class="contact-item">
+                        <!-- Título con emoji -->
+                        <h4>📍 Dirección</h4>
+                        
+                        <!-- Dirección física -->
+                        <p>Av. Industrial 1234<br>Buenos Aires, Argentina</p>
+                        <!-- <br> = salto de línea -->
+                    </div>
+                </div>
+            </section>
+            
+            <!-- ========================================
+                 ACCIONES RÁPIDAS
+                 ========================================
+                 Botones para acciones comunes
+            -->
+            <section class="quick-actions">
+                <!-- Título de la sección -->
+                <h3>Acciones Rápidas</h3>
+                
+                <!-- Contenedor de los botones -->
+                <div class="action-buttons">
+                    <!-- Botón para ver todas las consultas enviadas -->
+                    <a href="/contacto/listar" class="btn btn-secondary">Ver Consultas Enviadas</a>
+                    
+                    <!-- Botón para ir a la página de productos -->
+                    <a href="/productos.html" class="btn btn-secondary">Ver Productos</a>
+                </div>
+            </section>
+        </main>
+        
+        <!-- ========================================
+             PIE DE PÁGINA (FOOTER)
+             ========================================
+             Acá está la información de copyright
+        -->
+        <footer>
+            <!-- Texto de copyright -->
+            <p>&copy; 2025 AgroTrack. Portal Interno - Todos los derechos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>
+
+<!-- ========================================
+     ¡LISTO! PÁGINA DE CONTACTO COMPLETADA
+     ========================================
+     
+     Esta página incluye:
+     - Encabezado con navegación
+     - Título y descripción de la página
+     - Formulario de contacto con 3 campos:
+       * Nombre completo (obligatorio)
+       * Correo electrónico (obligatorio)
+       * Mensaje (obligatorio)
+     - Información de contacto de la empresa
+     - Botones de acciones rápidas
+     - Pie de página
+     
+     Cuando alguien envía el formulario:
+     1. Los datos van a /contacto/cargar (POST)
+     2. El servidor guarda la consulta en data/consultas.txt
+     3. Muestra una página de agradecimiento
+     
+     Los usuarios también pueden:
+     - Ver todas las consultas enviadas en /contacto/listar
+     - Ir a la página de productos
+     
+     Todo está conectado con el archivo estilos.css para que se vea lindo.
+-->

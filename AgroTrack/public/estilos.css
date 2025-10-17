@@ -1,0 +1,1222 @@
+/* ========================================
+   ESTILOS AGROTRACK - PORTAL INTERNO
+   ========================================
+
+/* ========================================
+   RESET Y CONFIGURACIÓN BASE
+   ========================================
+   Acá "reseteamos" los estilos por defecto del navegador
+   para que nuestro sitio se vea igual en todos lados
+*/
+
+/* Le sacamos todos los márgenes y padding por defecto a todos los elementos */
+* {
+    margin: 0;           /* Sin espacio externo */
+    padding: 0;          /* Sin espacio interno */
+    box-sizing: border-box;  /* El padding se cuenta dentro del ancho total */
+}
+
+/* Configuración general del cuerpo de la página */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* Fuente moderna y legible */
+    line-height: 1.6;    /* Espaciado entre líneas para que sea fácil de leer */
+    color: #333;          /* Color de texto gris oscuro */
+    /* Fondo degradado con colores agroindustriales */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+    background-size: 400% 400%;  /* Para animación */
+    animation: gradientShift 15s ease infinite;  /* Animación de fondo */
+    min-height: 100vh;  /* Altura mínima de toda la pantalla */
+}
+
+/* Contenedor principal que envuelve todo el contenido */
+.container {
+    max-width: 1200px;   /* Ancho máximo para que no se estire mucho en pantallas grandes */
+    margin: 0 auto;      /* Centrado automático */
+    background-color: #fff;  /* Fondo blanco para el contenido */
+    min-height: 100vh;  /* Altura mínima de toda la pantalla */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);  /* Sombra sutil alrededor del contenedor */
+}
+
+/* ========================================
+   HEADER (ENCABEZADO)
+   ========================================
+   Acá está el título principal y la navegación
+*/
+
+/* El encabezado principal con el título AgroTrack */
+header {
+    background: linear-gradient(135deg, #2c5530, #4a7c59);  /* Degradado verde corporativo */
+    color: white;        /* Texto blanco */
+    padding: 2rem 0;     /* Espaciado arriba y abajo */
+    text-align: center;  /* Todo centrado */
+}
+
+/* El título principal "AgroTrack" */
+header h1 {
+    font-size: 2.5rem;   /* Tamaño grande */
+    margin-bottom: 0.5rem;  /* Espacio abajo */
+    font-weight: 700;    /* Negrita */
+}
+
+/* El subtítulo que dice "Portal Interno Agroindustrial" */
+.subtitle {
+    font-size: 1.1rem;   /* Tamaño mediano */
+    opacity: 0.9;        /* Un poquito transparente */
+    margin-bottom: 1.5rem;  /* Espacio abajo */
+}
+
+/* La barra de navegación con los links */
+nav {
+    display: flex;              /* Los links uno al lado del otro */
+    justify-content: center;    /* Centrados */
+    gap: 2rem;                  /* Espacio entre cada link */
+    flex-wrap: wrap;            /* Si no entran, se van a la línea de abajo */
+}
+
+/* Cada link de la navegación */
+nav a {
+    color: white;               /* Texto blanco */
+    text-decoration: none;      /* Sin subrayado */
+    padding: 0.5rem 1rem;      /* Espaciado interno */
+    border-radius: 25px;        /* Bordes redondeados */
+    transition: all 0.3s ease;  /* Animación suave cuando cambia */
+    font-weight: 500;           /* Semi-negrita */
+}
+
+/* Cuando pasas el mouse por encima de un link */
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);  /* Fondo blanco semi-transparente */
+    transform: translateY(-2px);  /* Se mueve un poquito hacia arriba */
+}
+
+/* El link que está activo (la página actual) */
+nav a.active {
+    background-color: rgba(255, 255, 255, 0.3);  /* Fondo blanco más opaco */
+}
+
+/* ========================================
+   CONTENIDO PRINCIPAL
+   ========================================
+   Acá está todo el contenido de las páginas
+*/
+
+/* El área principal donde va el contenido */
+main {
+    padding: 2rem;  /* Espaciado interno */
+}
+
+/* ========================================
+   SECCIÓN HERO (PÁGINA PRINCIPAL)
+   ========================================
+   La sección principal de la página de inicio
+*/
+
+/* La sección hero con el mensaje de bienvenida */
+.hero {
+    text-align: center;  /* Todo centrado */
+    margin-bottom: 3rem;  /* Espacio abajo */
+    padding: 2rem;        /* Espaciado interno */
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);  /* Degradado gris claro */
+    border-radius: 15px;  /* Bordes redondeados */
+}
+
+/* El título principal de la sección hero */
+.hero h2 {
+    font-size: 2rem;      /* Tamaño grande */
+    color: #2c5530;       /* Verde corporativo */
+    margin-bottom: 1rem;  /* Espacio abajo */
+}
+
+/* Contenedor del logo en hero */
+.hero-logo {
+    margin-bottom: 1.5rem;  /* Espacio abajo */
+}
+
+/* Imagen del logo */
+.logo-image {
+    width: 120px;           /* Ancho del logo */
+    height: 120px;          /* Alto del logo */
+    border-radius: 50%;     /* Forma circular */
+    box-shadow: 0 5px 15px rgba(44, 85, 48, 0.3);  /* Sombra verde */
+    transition: transform 0.3s ease;  /* Animación suave */
+}
+
+/* Animación del logo al pasar el mouse */
+.logo-image:hover {
+    transform: scale(1.05);  /* Se agranda un poquito */
+}
+
+/* El párrafo descriptivo */
+.hero p {
+    font-size: 1.1rem;    /* Tamaño mediano */
+    color: #666;          /* Gris medio */
+    max-width: 600px;    /* Ancho máximo para que no se estire mucho */
+    margin: 0 auto;      /* Centrado */
+}
+
+/* ========================================
+   TARJETAS DE CARACTERÍSTICAS
+   ========================================
+   Las tarjetas que muestran las funcionalidades del portal
+*/
+
+/* Contenedor de las tarjetas de características */
+.features {
+    display: grid;                                    /* Layout en grilla */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  /* Columnas que se adaptan */
+    gap: 2rem;                                        /* Espacio entre tarjetas */
+    margin-bottom: 3rem;                               /* Espacio abajo */
+}
+
+/* Cada tarjeta de característica */
+.feature-card {
+    background: white;           /* Fondo blanco */
+    padding: 2rem;              /* Espaciado interno */
+    border-radius: 15px;        /* Bordes redondeados */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);  /* Sombra sutil */
+    text-align: center;          /* Todo centrado */
+    transition: transform 0.3s ease;  /* Animación suave */
+}
+
+/* Cuando pasas el mouse por encima de una tarjeta */
+.feature-card:hover {
+    transform: translateY(-5px);  /* Se eleva un poquito */
+}
+
+/* El título de cada tarjeta */
+.feature-card h3 {
+    font-size: 1.3rem;    /* Tamaño mediano */
+    color: #2c5530;       /* Verde corporativo */
+    margin-bottom: 1rem;  /* Espacio abajo */
+}
+
+/* El texto descriptivo de cada tarjeta */
+.feature-card p {
+    color: #666;          /* Gris medio */
+    margin-bottom: 1.5rem;  /* Espacio abajo */
+}
+
+/* ========================================
+   ENCABEZADOS DE PÁGINA
+   ========================================
+   Los encabezados que aparecen en cada página
+*/
+
+/* El encabezado que aparece en cada página */
+.page-header {
+    text-align: center;  /* Todo centrado */
+    margin-bottom: 2rem;  /* Espacio abajo */
+    padding: 1.5rem;      /* Espaciado interno */
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);  /* Degradado gris claro */
+    border-radius: 15px;  /* Bordes redondeados */
+}
+
+/* El título del encabezado */
+.page-header h2 {
+    font-size: 2rem;      /* Tamaño grande */
+    color: #2c5530;       /* Verde corporativo */
+    margin-bottom: 0.5rem;  /* Espacio abajo */
+}
+
+/* El subtítulo del encabezado */
+.page-header p {
+    color: #666;          /* Gris medio */
+    font-size: 1.1rem;    /* Tamaño mediano */
+}
+
+/* ========================================
+   SECCIÓN DE PRODUCTOS
+   ========================================
+   Las tarjetas que muestran los productos
+*/
+
+/* Contenedor de las tarjetas de productos */
+.products {
+    display: grid;                                    /* Layout en grilla */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  /* Columnas adaptables */
+    gap: 2rem;                                        /* Espacio entre tarjetas */
+    margin-bottom: 3rem;                              /* Espacio abajo */
+}
+
+/* Cada tarjeta de producto */
+.product-card {
+    background: white;           /* Fondo blanco */
+    padding: 1.5rem;             /* Espaciado interno */
+    border-radius: 15px;         /* Bordes redondeados */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);  /* Sombra sutil */
+    border-left: 4px solid #4a7c59;  /* Borde izquierdo verde */
+}
+
+/* El título de cada producto */
+.product-card h3 {
+    font-size: 1.2rem;    /* Tamaño mediano */
+    color: #2c5530;       /* Verde corporativo */
+    margin-bottom: 1rem;  /* Espacio abajo */
+}
+
+/* Las listas de productos */
+.product-card ul {
+    list-style: none;     /* Sin viñetas */
+    padding-left: 0;      /* Sin sangría */
+}
+
+/* Cada elemento de la lista */
+.product-card li {
+    padding: 0.3rem 0;    /* Espaciado arriba y abajo */
+    color: #666;          /* Gris medio */
+}
+
+/* Agregamos un checkmark antes de cada elemento */
+.product-card li:before {
+    content: "✓ ";        /* Símbolo de check */
+    color: #4a7c59;       /* Verde corporativo */
+    font-weight: bold;    /* Negrita */
+}
+
+/* ========================================
+   FORMULARIOS
+   ========================================
+   Los estilos para los formularios de contacto y login
+*/
+
+/* Contenedor del formulario de contacto */
+.contact-form, .login-form {
+    max-width: 600px;     /* Ancho máximo */
+    margin: 0 auto 3rem;  /* Centrado con espacio abajo */
+}
+
+/* La tarjeta del formulario de login */
+.login-card {
+    background: white;           /* Fondo blanco */
+    padding: 2rem;               /* Espaciado interno */
+    border-radius: 15px;        /* Bordes redondeados */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);  /* Sombra sutil */
+}
+
+/* El mensaje informativo de demostración */
+.demo-info {
+    background: #e3f2fd;    /* Fondo azul claro */
+    padding: 1rem;          /* Espaciado interno */
+    border-radius: 10px;    /* Bordes redondeados */
+    margin-bottom: 1.5rem;  /* Espacio abajo */
+    color: #1976d2;         /* Azul */
+    font-weight: 500;       /* Semi-negrita */
+}
+
+/* Las credenciales de ejemplo */
+.demo-credentials {
+    background: #f3e5f5;    /* Fondo violeta claro */
+    padding: 1rem;          /* Espaciado interno */
+    border-radius: 10px;    /* Bordes redondeados */
+    margin-top: 1.5rem;     /* Espacio arriba */
+    text-align: center;     /* Centrado */
+}
+
+/* El título de las credenciales */
+.demo-credentials h4 {
+    color: #7b1fa2;         /* Violeta */
+    margin-bottom: 0.5rem;  /* Espacio abajo */
+}
+
+/* Cada grupo de campo del formulario */
+.form-group {
+    margin-bottom: 1.5rem;  /* Espacio abajo */
+}
+
+/* Las etiquetas de los campos */
+.form-group label {
+    display: block;         /* Una línea por etiqueta */
+    margin-bottom: 0.5rem; /* Espacio abajo */
+    font-weight: 600;       /* Semi-negrita */
+    color: #2c5530;         /* Verde corporativo */
+}
+
+/* Los campos de entrada (input y textarea) */
+.form-group input,
+.form-group textarea {
+    width: 100%;           /* Ancho completo */
+    padding: 0.75rem;      /* Espaciado interno */
+    border: 2px solid #e0e0e0;  /* Borde gris claro */
+    border-radius: 10px;   /* Bordes redondeados */
+    font-size: 1rem;       /* Tamaño de fuente */
+    transition: border-color 0.3s ease;  /* Animación suave */
+}
+
+/* Cuando el campo está enfocado (cuando escribís) */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;         /* Sin borde por defecto */
+    border-color: #4a7c59; /* Borde verde */
+}
+
+/* El área de texto para mensajes largos */
+.form-group textarea {
+    resize: vertical;      /* Solo se puede redimensionar verticalmente */
+    min-height: 120px;     /* Altura mínima */
+}
+
+/* Los botones de acción del formulario */
+.form-actions {
+    display: flex;         /* Los botones uno al lado del otro */
+    gap: 1rem;             /* Espacio entre botones */
+    justify-content: center;  /* Centrados */
+    flex-wrap: wrap;       /* Si no entran, se van a la línea de abajo */
+}
+
+/* ========================================
+   BOTONES
+   ========================================
+   Los estilos para todos los botones
+*/
+
+/* Botón principal (verde) */
+.btn {
+    display: inline-block;  /* Se comporta como un bloque pero en línea */
+    padding: 0.75rem 1.5rem;  /* Espaciado interno */
+    background: linear-gradient(135deg, #4a7c59, #2c5530);  /* Degradado verde */
+    color: white;           /* Texto blanco */
+    text-decoration: none; /* Sin subrayado */
+    border: none;          /* Sin borde */
+    border-radius: 25px;  /* Bordes redondeados */
+    font-size: 1rem;       /* Tamaño de fuente */
+    font-weight: 600;      /* Semi-negrita */
+    cursor: pointer;       /* Cursor de mano */
+    transition: all 0.3s ease;  /* Animación suave */
+    text-align: center;    /* Texto centrado */
+}
+
+/* Cuando pasas el mouse por encima del botón */
+.btn:hover {
+    transform: translateY(-2px);  /* Se eleva un poquito */
+    box-shadow: 0 5px 15px rgba(74, 124, 89, 0.3);  /* Sombra verde */
+}
+
+/* Botón secundario (gris) */
+.btn-secondary {
+    background: linear-gradient(135deg, #6c757d, #495057);  /* Degradado gris */
+}
+
+/* Cuando pasas el mouse por encima del botón secundario */
+.btn-secondary:hover {
+    box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);  /* Sombra gris */
+}
+
+/* ========================================
+   INFORMACIÓN DE CONTACTO
+   ========================================
+   Las tarjetas con información de contacto
+*/
+
+/* Contenedor de la información de contacto */
+.contact-info {
+    margin-bottom: 3rem;  /* Espacio abajo */
+}
+
+/* Contenedor de las tarjetas de contacto */
+.contact-details {
+    display: grid;                                    /* Layout en grilla */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  /* Columnas adaptables */
+    gap: 2rem;                                        /* Espacio entre tarjetas */
+}
+
+/* Cada tarjeta de información de contacto */
+.contact-item {
+    background: white;           /* Fondo blanco */
+    padding: 1.5rem;             /* Espaciado interno */
+    border-radius: 15px;         /* Bordes redondeados */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);  /* Sombra sutil */
+    text-align: center;          /* Todo centrado */
+}
+
+/* El título de cada tarjeta de contacto */
+.contact-item h4 {
+    color: #2c5530;       /* Verde corporativo */
+    margin-bottom: 0.5rem; /* Espacio abajo */
+}
+
+/* ========================================
+   SECCIONES DE INFORMACIÓN
+   ========================================
+   Las secciones con información adicional
+*/
+
+/* Sección de información general */
+.info {
+    background: white;           /* Fondo blanco */
+    padding: 2rem;               /* Espaciado interno */
+    border-radius: 15px;         /* Bordes redondeados */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);  /* Sombra sutil */
+    margin-bottom: 2rem;         /* Espacio abajo */
+}
+
+/* El título de la sección de información */
+.info h3 {
+    color: #2c5530;       /* Verde corporativo */
+    margin-bottom: 1rem;  /* Espacio abajo */
+    font-size: 1.3rem;    /* Tamaño mediano */
+}
+
+/* El texto de la sección de información */
+.info p {
+    color: #666;          /* Gris medio */
+    line-height: 1.7;    /* Espaciado entre líneas */
+}
+
+/* ========================================
+   INFORMACIÓN DE LOGIN
+   ========================================
+   Las tarjetas informativas del login
+*/
+
+/* Contenedor de la información de login */
+.login-info {
+    margin-top: 2rem;     /* Espacio arriba */
+}
+
+/* Contenedor de las tarjetas informativas */
+.info-cards {
+    display: grid;                                    /* Layout en grilla */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  /* Columnas adaptables */
+    gap: 2rem;                                        /* Espacio entre tarjetas */
+}
+
+/* Cada tarjeta informativa */
+.info-card {
+    background: white;           /* Fondo blanco */
+    padding: 1.5rem;             /* Espaciado interno */
+    border-radius: 15px;         /* Bordes redondeados */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);  /* Sombra sutil */
+    text-align: center;          /* Todo centrado */
+}
+
+/* El título de cada tarjeta informativa */
+.info-card h4 {
+    color: #2c5530;       /* Verde corporativo */
+    margin-bottom: 1rem;  /* Espacio abajo */
+}
+
+/* El texto de cada tarjeta informativa */
+.info-card p {
+    color: #666;          /* Gris medio */
+    font-size: 0.9rem;   /* Tamaño pequeño */
+}
+
+/* ========================================
+   ACCIONES RÁPIDAS
+   ========================================
+   Los botones de acciones rápidas
+*/
+
+/* Contenedor de acciones rápidas */
+.quick-actions {
+    margin-bottom: 2rem;  /* Espacio abajo */
+}
+
+/* Contenedor de los botones de acción */
+.action-buttons {
+    display: flex;         /* Los botones uno al lado del otro */
+    gap: 1rem;            /* Espacio entre botones */
+    justify-content: center;  /* Centrados */
+    flex-wrap: wrap;       /* Si no entran, se van a la línea de abajo */
+}
+
+/* ========================================
+   PÁGINAS DE ÉXITO Y ERROR
+   ========================================
+   Los estilos para las páginas de éxito, login y errores
+*/
+
+/* Páginas de éxito, login exitoso, consultas y errores */
+.success-page, .login-success, .consultas-page, .error-page {
+    text-align: center;   /* Todo centrado */
+    max-width: 800px;     /* Ancho máximo más grande */
+    margin: 0 auto;       /* Centrado */
+    background: white;    /* Fondo blanco */
+    padding: 2rem;        /* Espaciado interno */
+    border-radius: 15px;  /* Bordes redondeados */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);  /* Sombra sutil */
+}
+
+/* Los títulos de estas páginas */
+.success-page h1, .login-success h1, .consultas-page h1, .error-page h1 {
+    color: #2c5530;       /* Verde corporativo */
+    margin-bottom: 1rem;  /* Espacio abajo */
+    font-size: 2.2rem;    /* Tamaño grande */
+}
+
+.success-page h2, .login-success h2, .consultas-page h2, .error-page h2 {
+    color: #2c5530;       /* Verde corporativo */
+    margin-bottom: 1rem;  /* Espacio abajo */
+    font-size: 1.8rem;    /* Tamaño mediano */
+}
+
+/* Los párrafos de estas páginas */
+.success-page p, .login-success p, .consultas-page p, .error-page p {
+    color: #666;          /* Gris medio */
+    margin-bottom: 1.5rem; /* Espacio abajo */
+    font-size: 1.1rem;    /* Tamaño mediano */
+}
+
+/* Contenedor de acciones */
+.actions {
+    display: flex;         /* Los botones uno al lado del otro */
+    gap: 1rem;            /* Espacio entre botones */
+    justify-content: center;  /* Centrados */
+    flex-wrap: wrap;       /* Si no entran, se van a la línea de abajo */
+    margin-top: 2rem;     /* Espacio arriba */
+}
+
+/* ========================================
+   PÁGINA DE LOGIN EXITOSO
+   ========================================
+*/
+
+/* Animación de entrada para la página de login exitoso */
+.login-success {
+    animation: slideInFromTop 0.8s ease-out;
+    position: relative;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 3rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Las credenciales mostradas después del login */
+.credentials {
+    background: linear-gradient(135deg, #e8f5e8, #f0f8f0);  /* Degradado verde claro */
+    padding: 3rem;      /* Espaciado interno mayor */
+    border-radius: 25px;  /* Bordes más redondeados */
+    margin: 2rem 0;       /* Espacio arriba y abajo */
+    border: 3px solid #4a7c59;  /* Borde verde más grueso */
+    box-shadow: 0 15px 35px rgba(74, 124, 89, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);  /* Sombra verde más pronunciada */
+    position: relative;   /* Para el pseudo-elemento */
+    overflow: hidden;     /* Para ocultar elementos que se salgan */
+    transform: perspective(1000px) rotateX(5deg);
+    transition: all 0.3s ease;
+}
+
+.credentials:hover {
+    transform: perspective(1000px) rotateX(0deg) scale(1.02);
+    box-shadow: 0 20px 45px rgba(74, 124, 89, 0.4);
+}
+
+/* Efecto de brillo animado en las credenciales */
+.credentials::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shine 3s infinite;
+}
+
+/* Efecto de partículas de fondo */
+.credentials::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 20%, rgba(74, 124, 89, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(44, 85, 48, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Cada línea de credenciales */
+.credentials p {
+    margin-bottom: 1.2rem;  /* Espacio abajo mayor */
+    font-size: 1.4rem;    /* Tamaño más grande */
+    color: #2c5530;       /* Verde corporativo */
+    font-weight: 700;     /* Más negrita */
+    position: relative;   /* Para estar sobre el efecto de brillo */
+    z-index: 2;          /* Para estar sobre el pseudo-elemento */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Sombra de texto sutil */
+    animation: slideInFromLeft 0.8s ease-out;
+}
+
+.credentials p:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+/* Ícono de éxito para login con animación */
+.login-success::before {
+    content: "✅";
+    font-size: 6rem;      /* Más grande */
+    display: block;
+    margin-bottom: 2rem;
+    animation: celebration 2s ease-out;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));  /* Sombra del emoji */
+    text-shadow: 0 0 20px rgba(74, 124, 89, 0.5);
+}
+
+/* Efecto de partículas flotantes */
+.login-success::after {
+    content: "✨";
+    position: absolute;
+    top: 15%;
+    right: 15%;
+    font-size: 2.5rem;
+    animation: float 3s ease-in-out infinite;
+    opacity: 0.8;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Segundo efecto de partícula */
+.login-success .particle {
+    content: "🌟";
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    font-size: 2rem;
+    animation: float 2.5s ease-in-out infinite reverse;
+    opacity: 0.7;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Tercer efecto de partícula */
+.login-success .particle:nth-child(2) {
+    content: "💫";
+    position: absolute;
+    top: 60%;
+    right: 20%;
+    font-size: 1.8rem;
+    animation: float 3.2s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+/* ========================================
+   PÁGINA DE AGRADECIMIENTO
+   ========================================
+*/
+
+/* Animación de entrada para página de agradecimiento */
+.success-page {
+    animation: slideInFromBottom 0.8s ease-out;
+    position: relative;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 3rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Ícono de éxito para agradecimiento con animación */
+.success-page::before {
+    content: "🎉";
+    font-size: 7rem;      /* Más grande */
+    display: block;
+    margin-bottom: 2rem;
+    animation: celebration 2.5s ease-out;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));  /* Sombra del emoji */
+    text-shadow: 0 0 30px rgba(255, 193, 7, 0.8);
+}
+
+/* Mensaje de agradecimiento destacado */
+.thanks-message {
+    background: linear-gradient(135deg, #e8f5e8, #f0f8f0);  /* Degradado verde claro */
+    padding: 3rem;      /* Espaciado interno mayor */
+    border-radius: 25px;  /* Bordes más redondeados */
+    margin: 2rem 0;       /* Espacio arriba y abajo */
+    border: 3px solid #4a7c59;  /* Borde verde más grueso */
+    box-shadow: 0 15px 35px rgba(74, 124, 89, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);  /* Sombra verde */
+    position: relative;   /* Para efectos adicionales */
+    overflow: hidden;     /* Para ocultar elementos que se salgan */
+    transform: perspective(1000px) rotateX(5deg);
+    transition: all 0.3s ease;
+}
+
+.thanks-message:hover {
+    transform: perspective(1000px) rotateX(0deg) scale(1.02);
+    box-shadow: 0 20px 45px rgba(74, 124, 89, 0.4);
+}
+
+/* Efecto de brillo en el mensaje de agradecimiento */
+.thanks-message::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    animation: shine 4s infinite;
+}
+
+/* Efecto de partículas de fondo */
+.thanks-message::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(74, 124, 89, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(44, 85, 48, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Texto del mensaje de agradecimiento */
+.thanks-message p {
+    position: relative;
+    z-index: 2;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: slideInFromLeft 1s ease-out 0.5s both;
+}
+
+/* Efectos de confeti flotante */
+.success-page::after {
+    content: "🎊";
+    position: absolute;
+    top: 10%;
+    right: 15%;
+    font-size: 3rem;
+    animation: float 2s ease-in-out infinite;
+    opacity: 0.9;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
+}
+
+.success-page .confetti {
+    content: "🎈";
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    font-size: 2.5rem;
+    animation: float 2.8s ease-in-out infinite reverse;
+    opacity: 0.8;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
+}
+
+/* Efecto de confeti adicional */
+.success-page .confetti:nth-child(2) {
+    content: "🎁";
+    position: absolute;
+    top: 70%;
+    right: 25%;
+    font-size: 2rem;
+    animation: float 3.5s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+/* ========================================
+   PÁGINA DE CONSULTAS
+   ========================================
+*/
+
+/* Animación de entrada para página de consultas */
+.consultas-page {
+    animation: slideInFromLeft 0.8s ease-out;
+    position: relative;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 3rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Ícono para página de consultas con animación */
+.consultas-page::before {
+    content: "📋";
+    font-size: 6rem;      /* Más grande */
+    display: block;
+    margin-bottom: 2rem;
+    animation: slideInFromTop 1.2s ease-out;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));  /* Sombra del emoji */
+    text-shadow: 0 0 20px rgba(74, 124, 89, 0.5);
+}
+
+/* El contenido de las consultas */
+.consultas-content {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);  /* Degradado gris claro */
+    padding: 3rem;      /* Espaciado interno mayor */
+    border-radius: 25px;  /* Bordes más redondeados */
+    text-align: left;      /* Texto alineado a la izquierda */
+    white-space: pre-wrap; /* Respeta los saltos de línea */
+    font-family: 'Courier New', monospace;  /* Fuente monoespaciada */
+    font-size: 1.2rem;     /* Tamaño más grande */
+    max-height: 700px;     /* Altura máxima mayor */
+    overflow-y: auto;      /* Scroll vertical si es necesario */
+    border: 3px solid #4a7c59;  /* Borde verde */
+    box-shadow: 0 15px 35px rgba(74, 124, 89, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.1);  /* Sombra externa e interna */
+    position: relative;    /* Para efectos adicionales */
+    transform: perspective(1000px) rotateX(5deg);
+    transition: all 0.3s ease;
+}
+
+.consultas-content:hover {
+    transform: perspective(1000px) rotateX(0deg) scale(1.01);
+    box-shadow: 0 20px 45px rgba(74, 124, 89, 0.4);
+}
+
+/* Scrollbar personalizado para el contenido de consultas */
+.consultas-content::-webkit-scrollbar {
+    width: 12px;
+}
+
+.consultas-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.consultas-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #4a7c59, #2c5530);
+    border-radius: 10px;
+}
+
+.consultas-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #2c5530, #1a3d1f);
+}
+
+/* Efecto de brillo en el contenido de consultas */
+.consultas-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: scan 3s infinite;
+}
+
+/* Mensaje cuando no hay consultas */
+.no-consultas {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);  /* Degradado amarillo claro */
+    padding: 3rem;        /* Espaciado interno mayor */
+    border-radius: 20px;  /* Bordes más redondeados */
+    color: #856404;       /* Amarillo oscuro */
+    font-style: italic;   /* Cursiva */
+    font-size: 1.3rem;    /* Tamaño más grande */
+    border: 3px solid #ffc107;  /* Borde amarillo más grueso */
+    box-shadow: 0 8px 25px rgba(255, 193, 7, 0.2);  /* Sombra amarilla */
+    position: relative;   /* Para efectos adicionales */
+    overflow: hidden;     /* Para ocultar elementos que se salgan */
+    animation: pulse 2s infinite;  /* Animación de pulso */
+}
+
+/* Efecto de brillo en el mensaje de no consultas */
+.no-consultas::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shine 2.5s infinite;
+}
+
+/* Texto del mensaje de no consultas */
+.no-consultas {
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   PÁGINAS DE ERROR
+   ========================================
+*/
+
+/* Ícono de error */
+.error-page::before {
+    content: "❌";
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* Mensaje de error */
+.error-message {
+    background: linear-gradient(135deg, #f8d7da, #f5c6cb);  /* Degradado rojo claro */
+    padding: 1.5rem;      /* Espaciado interno */
+    border-radius: 15px;  /* Bordes redondeados */
+    color: #721c24;       /* Rojo oscuro */
+    font-weight: 600;     /* Semi-negrita */
+    font-size: 1.2rem;    /* Tamaño mediano */
+    border: 2px solid #dc3545;  /* Borde rojo */
+    margin: 1rem 0;       /* Espacio arriba y abajo */
+}
+
+/* Descripción del error */
+.error-description {
+    background: #f8f9fa;  /* Fondo gris claro */
+    padding: 1rem;        /* Espaciado interno */
+    border-radius: 10px;  /* Bordes redondeados */
+    color: #666;          /* Gris medio */
+    font-family: 'Courier New', monospace;  /* Fuente monoespaciada */
+    font-size: 0.9rem;    /* Tamaño pequeño */
+    border: 1px solid #dee2e6;  /* Borde gris claro */
+    margin: 1rem 0;       /* Espacio arriba y abajo */
+}
+
+/* ========================================
+   FOOTER (PIE DE PÁGINA)
+   ========================================
+   El pie de página con información de copyright
+*/
+
+/* El pie de página */
+footer {
+    background: #2c5530; /* Fondo verde corporativo */
+    color: white;         /* Texto blanco */
+    text-align: center;  /* Centrado */
+    padding: 1.5rem;     /* Espaciado interno */
+    margin-top: 3rem;    /* Espacio arriba */
+}
+
+/* El texto del pie de página */
+footer p {
+    opacity: 0.9;        /* Un poquito transparente */
+}
+
+/* ========================================
+   ANIMACIONES Y EFECTOS
+   ========================================
+   Animaciones personalizadas para mejorar la experiencia visual
+*/
+
+/* Animación de entrada desde arriba */
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animación de entrada desde abajo */
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animación de entrada desde la izquierda */
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Animación de rebote para iconos */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Animación de celebración */
+@keyframes celebration {
+    0% {
+        transform: scale(0.3) rotate(0deg);
+        opacity: 0;
+    }
+    25% {
+        transform: scale(1.1) rotate(5deg);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05) rotate(-5deg);
+    }
+    75% {
+        transform: scale(1.02) rotate(3deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Animación de flotación */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Animación de brillo */
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+}
+
+/* Animación de escaneo */
+@keyframes scan {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Animación de pulso */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Animación de fadeIn para elementos generales */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación del fondo degradado */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Aplicar animación de fadeIn a elementos que aparecen */
+.actions {
+    animation: fadeIn 0.6s ease-out 0.3s both;
+}
+
+/* ========================================
+   DISEÑO RESPONSIVE (ADAPTATIVO)
+   ========================================
+   Acá están los estilos para que el sitio se vea bien
+   en móviles, tablets y pantallas grandes
+*/
+
+/* Para pantallas medianas y chicas (tablets y móviles) */
+@media (max-width: 768px) {
+    /* El contenedor principal sin sombra en móviles */
+    .container {
+        margin: 0;       /* Sin margen */
+        box-shadow: none; /* Sin sombra */
+    }
+    
+    /* El título principal más chico en móviles */
+    header h1 {
+        font-size: 2rem;  /* Tamaño más chico */
+    }
+    
+    /* La navegación con menos espacio en móviles */
+    nav {
+        gap: 1rem;       /* Menos espacio entre links */
+    }
+    
+    /* Los links de navegación más chicos en móviles */
+    nav a {
+        padding: 0.4rem 0.8rem;  /* Menos padding */
+        font-size: 0.9rem;       /* Fuente más chica */
+    }
+    
+    /* El contenido principal con menos padding en móviles */
+    main {
+        padding: 1rem;   /* Menos padding */
+    }
+    
+    /* El título hero más chico en móviles */
+    .hero h2 {
+        font-size: 1.5rem;  /* Tamaño más chico */
+    }
+    
+    /* Las tarjetas de características en una columna en móviles */
+    .features {
+        grid-template-columns: 1fr;  /* Una sola columna */
+    }
+    
+    /* Las tarjetas de productos en una columna en móviles */
+    .products {
+        grid-template-columns: 1fr;  /* Una sola columna */
+    }
+    
+    /* Las tarjetas de contacto en una columna en móviles */
+    .contact-details {
+        grid-template-columns: 1fr;  /* Una sola columna */
+    }
+    
+    /* Las tarjetas informativas en una columna en móviles */
+    .info-cards {
+        grid-template-columns: 1fr;  /* Una sola columna */
+    }
+    
+    /* Los botones de formulario en columna en móviles */
+    .form-actions {
+        flex-direction: column;  /* Una columna */
+    }
+    
+    /* Los botones de acciones en columna en móviles */
+    .actions {
+        flex-direction: column;  /* Una columna */
+    }
+    
+    /* Los botones de acción rápida en columna en móviles */
+    .action-buttons {
+        flex-direction: column;  /* Una columna */
+    }
+}
+
+/* ========================================
+   ¡LISTO! TODOS LOS ESTILOS ESTÁN DEFINIDOS
+   ========================================
+   
+   Este archivo CSS hace que el portal AgroTrack se vea:
+   - Moderno y profesional
+   - Responsive (se adapta a cualquier pantalla)
+   - Con colores corporativos verdes
+   - Con animaciones suaves
+   - Fácil de usar en cualquier dispositivo
+   
+   Los estilos están organizados por secciones para que sea fácil
+   encontrar y modificar cualquier parte del diseño.
+*/
