@@ -1,0 +1,31 @@
+{
+  "name": "agrotrack-portal",
+  "version": "1.0.0",
+  "description": "Portal web interno para la empresa agroindustrial AgroTrack",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "nodejs",
+    "http-server",
+    "agroindustrial",
+    "portal",
+    "web"
+  ],
+  "author": "Tomas Bosco - Comisión A",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
+

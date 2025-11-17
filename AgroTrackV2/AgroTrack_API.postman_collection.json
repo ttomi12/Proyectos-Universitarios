@@ -1,0 +1,241 @@
+{
+	"info": {
+		"_postman_id": "agrotrack-api-v2",
+		"name": "AgroTrack API",
+		"description": "Colección de Postman para probar la API REST de AgroTrack V 2.0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"health"
+					]
+				},
+				"description": "Verifica el estado del servidor"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Contactos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/contactos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"contactos"
+					]
+				},
+				"description": "Obtiene todos los contactos registrados"
+			},
+			"response": []
+		},
+		{
+			"name": "POST Contacto - Válido",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Juan Pérez\",\n    \"email\": \"juan@example.com\",\n    \"mensaje\": \"Quisiera información sobre productos agroindustriales\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/contactos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"contactos"
+					]
+				},
+				"description": "Registra un nuevo contacto con datos válidos"
+			},
+			"response": []
+		},
+		{
+			"name": "POST Contacto - Sin nombre",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"maria@example.com\",\n    \"mensaje\": \"Consulta sobre servicios\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/contactos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"contactos"
+					]
+				},
+				"description": "Intenta registrar un contacto sin nombre (debe devolver error 400)"
+			},
+			"response": []
+		},
+		{
+			"name": "POST Contacto - Email inválido",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Pedro García\",\n    \"email\": \"email-invalido\",\n    \"mensaje\": \"Mensaje de prueba\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/contactos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"contactos"
+					]
+				},
+				"description": "Intenta registrar un contacto con email inválido (debe devolver error 400)"
+			},
+			"response": []
+		},
+		{
+			"name": "POST Contacto - Sin mensaje",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Ana López\",\n    \"email\": \"ana@example.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/contactos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"contactos"
+					]
+				},
+				"description": "Intenta registrar un contacto sin mensaje (debe devolver error 400)"
+			},
+			"response": []
+		},
+		{
+			"name": "POST Contacto - Campos vacíos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"\",\n    \"email\": \"\",\n    \"mensaje\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/contactos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"contactos"
+					]
+				},
+				"description": "Intenta registrar un contacto con todos los campos vacíos (debe devolver error 400)"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
+
+
+

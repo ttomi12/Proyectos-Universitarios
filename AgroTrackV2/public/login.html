@@ -1,0 +1,219 @@
+<!-- ========================================
+     PÁGINA DE LOGIN AGROTRACK
+     ========================================
+     Esta página permite a los empleados iniciar sesión en el sistema
+     interno de AgroTrack. Es un sistema de demostración que acepta
+     cualquier usuario y clave.
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración básica de la página -->
+    <meta charset="UTF-8">  <!-- Codificación de caracteres para que se vean bien las tildes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Para que se vea bien en móviles -->
+    <title>Login - AgroTrack</title>  <!-- El título que aparece en la pestaña del navegador -->
+    
+    <!-- Conectamos el archivo de estilos CSS -->
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+    <!-- Contenedor principal que envuelve todo el contenido -->
+    <div class="container">
+        
+        <!-- ========================================
+             ENCABEZADO (HEADER)
+             ========================================
+             Acá está el título principal y la navegación
+        -->
+        <header>
+            <!-- El título principal de la empresa -->
+            <h1>AgroTrack</h1>
+            
+            <!-- El subtítulo que explica qué es el portal -->
+            <p class="subtitle">Portal Interno Agroindustrial</p>
+            
+            <!-- La barra de navegación con los links principales -->
+            <nav>
+                <!-- Link a la página principal -->
+                <a href="/">Inicio</a>
+                
+                <!-- Link a la página de productos -->
+                <a href="/productos.html">Productos</a>
+                
+                <!-- Link al formulario de contacto -->
+                <a href="/contacto.html">Contacto</a>
+                
+                <!-- Link a la página actual (por eso tiene la clase "active") -->
+                <a href="/login.html" class="active">Login</a>
+            </nav>
+        </header>
+        
+        <!-- ========================================
+             CONTENIDO PRINCIPAL (MAIN)
+             ========================================
+             Acá está todo el contenido de la página
+        -->
+        <main>
+            
+            <!-- Encabezado de la página con título y descripción -->
+            <section class="page-header">
+                <!-- Título principal de la página -->
+                <h2>Iniciar Sesión</h2>
+                
+                <!-- Descripción de qué pueden hacer -->
+                <p>Accede al sistema interno de AgroTrack</p>
+            </section>
+            
+            <!-- ========================================
+                 FORMULARIO DE LOGIN
+                 ========================================
+                 Acá está el formulario que permite iniciar sesión
+            -->
+            <section class="login-form">
+                <!-- Tarjeta que contiene el formulario -->
+                <div class="login-card">
+                    
+                    <!-- Título del formulario -->
+                    <h3>Credenciales de Demostración</h3>
+                    
+                    <!-- Mensaje informativo que explica que es un sistema de demostración -->
+                    <p class="demo-info">Escribe un usuario y clave válidos para ingresar.</p>
+                    
+                    <!-- 
+                        El formulario envía los datos por POST a /auth/recuperar
+                        que es la ruta que procesa el login en el servidor
+                    -->
+                    <form action="/auth/recuperar" method="POST">
+                        
+                        <!-- Campo 1: Usuario -->
+                        <div class="form-group">
+                            <!-- Etiqueta del campo -->
+                            <label for="usuario">Usuario:</label>
+                            
+                            <!-- Campo de entrada de texto -->
+                            <input type="text" id="usuario" name="usuario" placeholder="Ingresa tu usuario" required>
+                            <!-- 
+                                required = campo obligatorio
+                                name="usuario" = nombre del campo que se envía al servidor
+                                placeholder = texto de ayuda que aparece cuando está vacío
+                            -->
+                        </div>
+                        
+                        <!-- Campo 2: Clave -->
+                        <div class="form-group">
+                            <!-- Etiqueta del campo -->
+                            <label for="clave">Clave:</label>
+                            
+                            <!-- Campo de entrada de contraseña (se oculta el texto) -->
+                            <input type="password" id="clave" name="clave" placeholder="Ingresa tu clave" required>
+                            <!-- 
+                                type="password" = oculta el texto que escribes
+                                required = campo obligatorio
+                                name="clave" = nombre del campo que se envía al servidor
+                                placeholder = texto de ayuda que aparece cuando está vacío
+                            -->
+                        </div>
+                        
+                        <!-- Botón para enviar el formulario -->
+                        <div class="form-actions">
+                            <button type="submit" class="btn">Iniciar Sesión</button>
+                        </div>
+                    </form>
+                    
+                    <!-- Sección que muestra credenciales de ejemplo -->
+                    <div class="demo-credentials">
+                        <!-- Título de la sección -->
+                        <h4>Credenciales de Ejemplo:</h4>
+                        
+                        <!-- Usuario de ejemplo -->
+                        <p><strong>Usuario:</strong> Juan</p>
+                        
+                        <!-- Clave de ejemplo -->
+                        <p><strong>Clave:</strong> 1234</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- ========================================
+                 INFORMACIÓN DEL SISTEMA
+                 ========================================
+                 Acá está información adicional sobre el sistema de login
+            -->
+            <section class="login-info">
+                <!-- Título de la sección -->
+                <h3>Información del Sistema</h3>
+                
+                <!-- Contenedor de las tarjetas informativas -->
+                <div class="info-cards">
+                    
+                    <!-- Tarjeta 1: Seguridad -->
+                    <div class="info-card">
+                        <!-- Título con emoji -->
+                        <h4>🔐 Seguridad</h4>
+                        
+                        <!-- Descripción sobre la seguridad -->
+                        <p>El sistema utiliza autenticación básica para demostración. En producción se implementarían medidas de seguridad avanzadas.</p>
+                    </div>
+                    
+                    <!-- Tarjeta 2: Acceso -->
+                    <div class="info-card">
+                        <!-- Título con emoji -->
+                        <h4>👥 Acceso</h4>
+                        
+                        <!-- Descripción sobre el acceso -->
+                        <p>Este portal está diseñado para el personal interno de AgroTrack. Contacta al administrador para obtener credenciales reales.</p>
+                    </div>
+                    
+                    <!-- Tarjeta 3: Funciones -->
+                    <div class="info-card">
+                        <!-- Título con emoji -->
+                        <h4>📋 Funciones</h4>
+                        
+                        <!-- Descripción sobre las funciones -->
+                        <p>Una vez autenticado, tendrás acceso a funciones adicionales del sistema interno.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- ========================================
+             PIE DE PÁGINA (FOOTER)
+             ========================================
+             Acá está la información de copyright
+        -->
+        <footer>
+            <!-- Texto de copyright -->
+            <p>&copy; 2025 AgroTrack. Portal Interno - Todos los derechos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>
+
+<!-- ========================================
+     ¡LISTO! PÁGINA DE LOGIN COMPLETADA
+     ========================================
+     
+     Esta página incluye:
+     - Encabezado con navegación
+     - Título y descripción de la página
+     - Formulario de login con 2 campos:
+       * Usuario (obligatorio)
+       * Clave (obligatorio, se oculta el texto)
+     - Credenciales de ejemplo para probar
+     - Información sobre el sistema de seguridad
+     - Pie de página
+     
+     Cuando alguien envía el formulario:
+     1. Los datos van a /auth/recuperar (POST)
+     2. El servidor procesa las credenciales
+     3. Muestra una página con las credenciales ingresadas
+     
+     Características del sistema de login:
+     - Es de demostración (acepta cualquier usuario/clave)
+     - Muestra las credenciales ingresadas en la respuesta
+     - Incluye credenciales de ejemplo (Juan / 1234)
+     - Tiene información sobre seguridad y acceso
+     
+     Todo está conectado con el archivo estilos.css para que se vea lindo.
+-->

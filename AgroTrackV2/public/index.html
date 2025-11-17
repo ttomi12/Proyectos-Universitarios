@@ -1,0 +1,152 @@
+<!-- ========================================
+     PÁGINA PRINCIPAL AGROTRACK - PORTAL INTERNO
+     ========================================
+     Esta es la página de inicio del portal interno de AgroTrack.
+     Acá los empleados pueden acceder a todas las funcionalidades del sistema.
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración básica de la página -->
+    <meta charset="UTF-8">  <!-- Codificación de caracteres para que se vean bien las tildes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Para que se vea bien en móviles -->
+    <title>AgroTrack - Portal Interno</title>  <!-- El título que aparece en la pestaña del navegador -->
+    
+    <!-- Conectamos el archivo de estilos CSS -->
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+    <!-- Contenedor principal que envuelve todo el contenido -->
+    <div class="container">
+        
+        <!-- ========================================
+             ENCABEZADO (HEADER)
+             ========================================
+             Acá está el título principal y la navegación
+        -->
+        <header>
+            <!-- El título principal de la empresa -->
+            <h1>AgroTrack</h1>
+            
+            <!-- El subtítulo que explica qué es el portal -->
+            <p class="subtitle">Portal Interno Agroindustrial</p>
+            
+            <!-- La barra de navegación con los links principales -->
+            <nav>
+                <!-- Link a la página actual (por eso tiene la clase "active") -->
+                <a href="/" class="active">Inicio</a>
+                
+                <!-- Link a la página de productos -->
+                <a href="/productos.html">Productos</a>
+                
+                <!-- Link al formulario de contacto -->
+                <a href="/contacto.html">Contacto</a>
+                
+                <!-- Link al formulario de login -->
+                <a href="/login.html">Login</a>
+            </nav>
+        </header>
+        
+        <!-- ========================================
+             CONTENIDO PRINCIPAL (MAIN)
+             ========================================
+             Acá está todo el contenido de la página
+        -->
+        <main>
+            
+            <!-- Sección hero: el mensaje de bienvenida principal -->
+            <section class="hero">
+                <!-- Logo de AgroTrack -->
+                <div class="hero-logo">
+                    <img src="/agrotrack-logo.svg" alt="Logo de AgroTrack" class="logo-image">
+                </div>
+                
+                <!-- El título principal de bienvenida -->
+                <h2>Bienvenido al Portal Interno de AgroTrack</h2>
+                
+                <!-- Descripción de qué pueden hacer en el portal -->
+                <p>Accede a información, servicios y herramientas para el personal de nuestra empresa agroindustrial.</p>
+            </section>
+            
+            <!-- Sección de características: las tarjetas con las funcionalidades principales -->
+            <section class="features">
+                
+                <!-- Tarjeta 1: Información de productos -->
+                <div class="feature-card">
+                    <!-- Título con emoji para que se vea más lindo -->
+                    <h3>📋 Información de Productos</h3>
+                    
+                    <!-- Descripción de qué pueden hacer -->
+                    <p>Consulta información detallada sobre nuestros productos agroindustriales.</p>
+                    
+                    <!-- Botón que los lleva a la página de productos -->
+                    <a href="/productos.html" class="btn">Ver Productos</a>
+                </div>
+                
+                <!-- Tarjeta 2: Sistema de contacto -->
+                <div class="feature-card">
+                    <!-- Título con emoji -->
+                    <h3>📞 Contacto</h3>
+                    
+                    <!-- Descripción -->
+                    <p>Envía consultas y mantén comunicación con el equipo interno.</p>
+                    
+                    <!-- Botón que los lleva al formulario de contacto -->
+                    <a href="/contacto.html" class="btn">Contactar</a>
+                </div>
+                
+                <!-- Tarjeta 3: Sistema de login -->
+                <div class="feature-card">
+                    <!-- Título con emoji -->
+                    <h3>🔐 Acceso</h3>
+                    
+                    <!-- Descripción -->
+                    <p>Inicia sesión para acceder a funciones adicionales del sistema.</p>
+                    
+                    <!-- Botón que los lleva al formulario de login -->
+                    <a href="/login.html" class="btn">Iniciar Sesión</a>
+                </div>
+            </section>
+            
+            <!-- Sección informativa: información sobre la empresa -->
+            <section class="info">
+                <!-- Título de la sección -->
+                <h3>Acerca de AgroTrack</h3>
+                
+                <!-- Descripción de la empresa y el portal -->
+                <p>AgroTrack es una empresa agroindustrial comprometida con la innovación y la calidad en el sector agrícola. Nuestro portal interno facilita la comunicación y el acceso a información relevante para todos nuestros empleados.</p>
+            </section>
+        </main>
+        
+        <!-- ========================================
+             PIE DE PÁGINA (FOOTER)
+             ========================================
+             Acá está la información de copyright
+        -->
+        <footer>
+            <!-- Texto de copyright -->
+            <p>&copy; 2025 AgroTrack. Portal Interno - Todos los derechos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>
+
+<!-- ========================================
+     ¡LISTO! PÁGINA PRINCIPAL COMPLETADA
+     ========================================
+     
+     Esta página incluye:
+     - Encabezado con navegación
+     - Mensaje de bienvenida
+     - Tarjetas con las funcionalidades principales
+     - Información sobre la empresa
+     - Pie de página
+     
+     Los usuarios pueden navegar fácilmente a:
+     - /productos.html → Ver información de productos
+     - /contacto.html → Enviar consultas
+     - /login.html → Iniciar sesión
+     
+     Todo está conectado con el archivo estilos.css para que se vea lindo.
+-->

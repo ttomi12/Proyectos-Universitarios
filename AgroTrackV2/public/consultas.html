@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultas Enviadas - AgroTrack</title>
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AgroTrack</h1>
+            <p class="subtitle">Portal Interno Agroindustrial</p>
+            <nav>
+                <a href="/">Inicio</a>
+                <a href="/productos.html">Productos</a>
+                <a href="/contacto.html">Contacto</a>
+                <a href="/consultas.html" class="active">Consultas</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="page-header">
+                <h2>Consultas Recibidas</h2>
+                <p>Listado actualizado de los mensajes enviados por el equipo.</p>
+            </section>
+
+            <section class="consultas-list">
+                <div id="consultasStatus" class="form-status info">Cargando consultas...</div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Mensaje</th>
+                                <th>Fecha</th>
+                            </tr>
+                        </thead>
+                        <tbody id="consultasBody">
+                            <tr>
+                                <td colspan="4">Sin datos disponibles</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="quick-actions">
+                <h3>Acciones</h3>
+                <div class="action-buttons">
+                    <a href="/contacto.html" class="btn">Nueva consulta</a>
+                    <a href="/" class="btn btn-secondary">Volver al inicio</a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 AgroTrack. Portal Interno - Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+    (async function loadConsultas() {
+        const statusBox = document.getElementById('consultasStatus');
+        const body = document.getElementById('consultasBody');
+
+        try {
+            const response = await fetch('/api/contactos');
+            if (!response.ok) {
+                throw new Error('No se pudieron cargar las consultas');
+            }
+
+            const data = await response.json();
+            const contactos = data?.data ?? [];
+
+            statusBox.textContent = contactos.length
+                ? `Total de consultas: ${contactos.length}`
+                : 'No hay consultas registradas.';
+            statusBox.className = `form-status ${contactos.length ? 'info' : 'warning'}`;
+
+            body.innerHTML = '';
+
+            if (!contactos.length) {
+                body.innerHTML = '<tr><td colspan="4">Aún no se registraron consultas.</td></tr>';
+                return;
+            }
+
+            contactos.forEach(contacto => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${contacto.nombre || '-'}</td>
+                    <td>${contacto.email || '-'}</td>
+                    <td>${contacto.mensaje || '-'}</td>
+                    <td>${new Date(contacto.fecha).toLocaleString('es-AR')}</td>
+                `;
+                body.appendChild(row);
+            });
+        } catch (error) {
+            statusBox.textContent = error.message || 'Error al cargar las consultas.';
+            statusBox.className = 'form-status error';
+            body.innerHTML = '<tr><td colspan="4">No se pudieron obtener las consultas.</td></tr>';
+        }
+    })();
+    </script>
+</body>
+</html>
+
